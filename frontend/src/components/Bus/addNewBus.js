@@ -25,7 +25,7 @@ export default function AddNewBus() {
                 <center>
                     <img className='gif-image' src="https://i.postimg.cc/tTpCYL4j/34600-bus-ticket.gif" />
                 </center>
-                <h3 className='mb-4 d-flex justify-content-center'>Add a new bus</h3>
+                <h4 className='mb-4 fw-bold text-uppercase'> add a new bus</h4>
                 <div className="row mb-4">
                 <TextField
                     id="outlined-textarea"

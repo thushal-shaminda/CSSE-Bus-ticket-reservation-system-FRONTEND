@@ -29,6 +29,8 @@ export default function AddTimeTable() {
                 <img className='gif-image-timetable' src="https://i.postimg.cc/Qx55TmRZ/lf30-editor-mpcfebd3-150x150.gif" />
                 </center>
 
+                <h4 className='mb-4 fw-bold text-uppercase'> add Bus Shedule</h4>
+
               <div className="row mb-4">
               <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
