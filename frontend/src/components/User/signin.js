@@ -7,8 +7,12 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 import './signin.css';
+import { Button } from '@mui/material';
 
 
 export default function Signin() {
@@ -38,9 +42,11 @@ export default function Signin() {
 
   return (
 
-    // <div className='container container-signin'>
       <div className="card position-absolute top-50 start-50 translate-middle card-signin">
             <div className="card-body py-5 px-md-5">
+              
+                <h4 className='text-uppercase fw-bold mb-3 signin-title'>administrator login</h4>
+                <p>Let your customers book tickets online using a bus ticket reservation system. Login here</p>
               <form>
                 <div className="row mb-4">
                 <TextField
@@ -76,43 +82,16 @@ export default function Signin() {
                   />
           </FormControl>
                 </div>
-                
 
-              
-                <div class="form-check d-flex justify-content-center mb-4">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" />
-                  <label class="form-check-label" for="form2Example33">
-                    Remember me
-                  </label>
-                </div>
+                <FormGroup>
+                  <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
+                </FormGroup>
 
-               
-                <button type="submit" class="btn btn-primary btn-block mb-4 px-5 py-2">
-                  Sign in
-                </button>
-
-               
-                <div class="text-center">
-                  <p>or sign up with:</p>
-                  <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-facebook-f"></i>
-                  </button>
-
-                  <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-google"></i>
-                  </button>
-
-                  <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-twitter"></i>
-                  </button>
-
-                  <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-github"></i>
-                  </button>
+                <div className= "d-flex justify-content-center mt-2">
+                    <Button variant="contained" size='medium'>Login here</Button>
                 </div>
               </form>
             </div>
           </div>
-    // </div>
   )
 }

@@ -7,7 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Header from '../Header/Header';
+import './viewBuses.css'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -44,13 +46,66 @@ const rows = [
 export default function ViewBuses() {
   return (
 
-    <div>
-        <Header/>
+    <Box sx={{ display: 'flex' }}>
+      <Header />
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+      >
+        {/* <Toolbar /> */}
 
-    <div class="card text-white bg-primary mb-3">
-    <div class="card-body">
-      <h5 class="card-title">Buses Information</h5>
+    <h4 className='mt-5 pt-3 fw-bold'>Month end Report</h4>
+    <div className='container mt-4'>
+    <div className="row">
+      <div className="col-4">
+        <h5 className='text-end mt-3'>Select Route</h5>
+      </div>
+      <div className='col-4'>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Select Route</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Select Route"
+                    size='medium'
+                    ma
+                  >
+                    <MenuItem value={10}>Normal</MenuItem>
+                    <MenuItem value={20}>A/C</MenuItem>
+                    <MenuItem value={30}>Luxury</MenuItem>
+                  </Select>
+                </FormControl>
+      </div>
+      <div className='col-4 mt-1'>
+        <Button variant="contained" size='large'>Genearte Report</Button>
+      </div>
     </div>
+    </div>
+
+    <div class="card text-white bg-primary mb-3 mt-5">
+      <div class="card-body">
+        <h5 class="card-title"><center>Daily Summery</center></h5>
+      </div>
+    </div>
+
+    <div className='container mt-5'>
+      <div className='d-flex justify-content-center'>
+        <div>
+      <h5 className='text-green'>Total Journey Count : xxxxxxxx</h5>
+      <h5 className='text-green'>Total Passenger Count : xxxxxxxx</h5> 
+
+      <br/>
+
+      <h5>Total Over Crowded Trip Count : xxxxxxxx</h5>
+      <h5>Total Under Crowded Trip Count : xxxxxxxx</h5>
+      </div>
+    </div>
+    </div>
+
+    <div class="card text-white bg-primary mb-3 mt-5">
+      <div class="card-body">
+        <h5 class="card-title"><center>Buses Information</center></h5>
+      </div>
     </div>
 
 
@@ -80,13 +135,7 @@ export default function ViewBuses() {
         </TableBody>
       </Table>
     </TableContainer>
-
-
-    
-    </div>
-    
-
-    
-    
+    </Box>
+    </Box>
   );
 }

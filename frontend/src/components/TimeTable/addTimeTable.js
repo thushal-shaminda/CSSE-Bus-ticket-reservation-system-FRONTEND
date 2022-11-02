@@ -1,11 +1,17 @@
 import React from 'react'
-import Header from '../Header/Header'
+import Header from '../Header/Header';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Box } from '@mui/material';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { Box, Button } from '@mui/material';
+
+import './addtimetable.css';
+
 
 export default function AddTimeTable() {
   return (
@@ -15,22 +21,16 @@ export default function AddTimeTable() {
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
-        {/* <Toolbar /> */}
-        <div className="card position-absolute top-50 start-50 translate-middle card-signin">
+        <div className="container mt-5 pt-3">
+        <div className="card d-flex justify-content-center card-add-timetable">
           <div className="card-body py-5 px-md-5">
             <form>
-              <img className='gif-image' src="https://i.postimg.cc/tTpCYL4j/34600-bus-ticket.gif" />
-              {/* <h3 className='mb-4'>Add a New Bus</h3> */}
-              <div className="row mb-4">
-                <TextField
-                  id="outlined-textarea"
-                  label="Enter Bus Number"
-                // size="small"
-                />
-              </div>
+                <center>
+                <img className='gif-image-timetable' src="https://i.postimg.cc/Qx55TmRZ/lf30-editor-mpcfebd3-150x150.gif" />
+                </center>
 
               <div className="row mb-4">
-                <FormControl fullWidth>
+              <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
@@ -45,14 +45,68 @@ export default function AddTimeTable() {
               </div>
 
               <div className="row mb-4">
-                <TextField
-                  id="outlined-textarea"
-                  label="Enter Bus Capacity"
-                // size="small"
-                />
+              <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Select Bus Type"
+                  >
+                    <MenuItem value={10}>Normal</MenuItem>
+                    <MenuItem value={20}>A/C</MenuItem>
+                    <MenuItem value={30}>Luxury</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
+
+              <div className="row mb-4">
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DesktopDatePicker
+                        label="Date desktop"
+                        inputFormat="MM/DD/YYYY"
+                        // value={value}
+                        // onChange={handleChange}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                </LocalizationProvider>
+              </div>
+
+              <div className="row mb-4">
+                <div className='col-2 mt-3 text-muted'>
+                    <h6>Time : </h6>
+                </div>
+
+                <div className='col-5 ps-0'>
+                    <TextField fullWidth id="outlined-basic" label="Hour" variant="outlined" />
+                </div>
+
+                <div className='col-5 pe-0'>
+                    <TextField fullWidth id="outlined-basic" label="Minutes" variant="outlined" />
+                </div>
+              </div>
+
+              <div className="row mb-4">
+              <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Select Bus Type"
+                  >
+                    <MenuItem value={10}>Normal</MenuItem>
+                    <MenuItem value={20}>A/C</MenuItem>
+                    <MenuItem value={30}>Luxury</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+
+                <div className= "d-flex justify-content-center">
+                    <Button variant="contained" size='large'>Add Shedule</Button>
+                </div>
+
             </form>
           </div>
+        </div>
         </div>
       </Box>
     </Box>
