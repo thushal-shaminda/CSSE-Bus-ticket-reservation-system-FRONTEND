@@ -15,16 +15,16 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 export default function FinanceReportDaily() {
 
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+  function createData(TicNo, Date, BusNo, RouteNo, pickuplocation, droplocation, tripcost) {
+    return { TicNo, Date, BusNo, RouteNo, pickuplocation, droplocation , tripcost};
   }
   
   const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    createData('63', '2022-10-13', 'ND - 1256', 92, 'Galle', 'Colombo', 700),
+    createData('64', '2022-10-23', 'NE - 4566', 5, 'negambo', 'Colombo', 300),
+    createData('65', '2022-10-14', 'ND - 1486', 12, 'Kandy', 'Colombo', 500),
+    createData('66', '2022-10-11', 'NC - 9866', 92, 'Jaffna', 'Colombo', 2500),
+    createData('67', '2022-10-03', 'NA - 0216', 44, 'Kaluthra', 'Colombo', 200),
   ];
 
 
@@ -61,7 +61,7 @@ export default function FinanceReportDaily() {
     </div>
     </div>
 
-    <div class="card text-white bg-primary mb-3 mt-5">
+    <div class="card text-white bg-primary mb-3 mt-4">
       <div class="card-body">
         <h5 class="card-title"><center>Daily Summery</center></h5>
       </div>
@@ -70,23 +70,23 @@ export default function FinanceReportDaily() {
     <div className='container mt-5'>
       <div className='d-flex justify-content-center'>
         <div>
-      <h5 className='text-green'>Total Journey Count : xxxxxxxx</h5>
-      <h5 className='text-green'>Total Daily Income : xxxxxxxx</h5> 
+      <h5 className='text-green'>Total Journey Count : </h5>
+      <h5 className='text-green'>Total Daily Income : </h5> 
 
       <br/>
 
-      <h5>Total Unpaid Journey Count : xxxxxxxx</h5>
-      <h5>Total Unpaid Ticket Amount : xxxxxxxx</h5>
+      <h5>Total Unpaid Journey Count : </h5>
+      <h5>Total Unpaid Ticket Amount : </h5>
 
       <br/>
 
-      <h5>Cash Paid Amount : xxxxxxxx</h5>
-      <h5>Online Paid Amount : xxxxxxxx</h5>
+      <h5>Cash Paid Amount : </h5>
+      <h5>Online Paid Amount : </h5>
       </div>
     </div>
     </div>
 
-    <div class="card text-white bg-primary mb-3 mt-5">
+    <div class="card text-white bg-primary mb-3 mt-4">
       <div class="card-body">
         <h5 class="card-title"><center>Ticket Information</center></h5>
       </div>
@@ -97,11 +97,11 @@ export default function FinanceReportDaily() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell>Dessert</TableCell>
             <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="right">Fat</TableCell>
+            <TableCell align="right">Carbs</TableCell>
+            <TableCell align="right">Protein</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -111,12 +111,14 @@ export default function FinanceReportDaily() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.TicNo}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.Date}</TableCell>
+              <TableCell align="right">{row.BusNo}</TableCell>
+              <TableCell align="right">{row.RouteNo}</TableCell>
+              <TableCell align="right">{row.pickuplocation}</TableCell>
+              <TableCell align="right">{row.droplocation}</TableCell>
+              <TableCell align="right">{row.tripcost}</TableCell>
             </TableRow>
           ))}
         </TableBody>
