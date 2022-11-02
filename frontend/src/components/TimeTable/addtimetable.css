@@ -1,9 +1,9 @@
-.gif-image{
-    width: 250px;
-    height: auto;
+.gif-image-timetable{
+    width: 200px;
+    height: 200px;
 }
 
-.card-new-bus{
+.card-add-timetable{
     width: 550px;
     margin: 0 auto;
     margin-top: 50px;

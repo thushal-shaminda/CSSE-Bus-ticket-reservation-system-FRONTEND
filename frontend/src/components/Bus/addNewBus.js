@@ -4,16 +4,28 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { Box } from '@mui/material';
+import Button from '@mui/material/Button';
 
 import './addNewBus.css'
+import Header from '../Header/Header';
 
 export default function AddNewBus() {
   return (
-    <div className="card position-absolute top-50 start-50 translate-middle card-signin">
+    <Box sx={{ display: 'flex' }}>
+      <Header />
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+      >
+        <div className="container mt-5 pt-3">
+        <div className="card d-flex justify-content-center card-new-bus">
             <div className="card-body py-5 px-md-5">
               <form>
-            <img className='gif-image' src="https://i.postimg.cc/tTpCYL4j/34600-bus-ticket.gif" />
-                {/* <h3 className='mb-4'>Add a New Bus</h3> */}
+                <center>
+                    <img className='gif-image' src="https://i.postimg.cc/tTpCYL4j/34600-bus-ticket.gif" />
+                </center>
+                <h3 className='mb-4 d-flex justify-content-center'>Add a new bus</h3>
                 <div className="row mb-4">
                 <TextField
                     id="outlined-textarea"
@@ -44,10 +56,17 @@ export default function AddNewBus() {
                     // size="small"
                 />
                 </div>
+                <div className= "d-flex justify-content-center">
+                    <Button variant="contained" size='large'>Add Bus</Button>
+                </div>
+                
 
                     
               </form>
             </div>
-          </div>
+            </div>
+            </div>
+          </Box>
+    </Box>
   )
 }

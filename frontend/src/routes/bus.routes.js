@@ -1,15 +1,20 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
+import AddNewBus from "../components/Bus/addNewBus";
 import ViewBusList from "../components/Bus/ViewBuses";
+import FinanceReportDaily from "../components/ReportManagement/financeReportDaily";
+import FinanceReportMonthly from "../components/ReportManagement/financeReportMonthly";
 import NewTimeTable from "../components/TimeTable/addTimeTable";
 
 export default function BusRoutes() {
   return (
     <Routes>
-      <Route path="/bus/info" element={<ViewBusList/>} />
+      <Route path="/view/info" element={<ViewBusList/>} />
       <Route path="/timetable/new" element={<NewTimeTable/>} />
-      {/* <Route path="*" element={<h1>Not Found</h1>} /> */}
+      <Route path="/add/new" element={<AddNewBus/>} />
+
+      <Route path="/report/finance-daily" element={<FinanceReportDaily/> } />
+      <Route path="/report/finance-monthly" element={<FinanceReportMonthly/> } />
     </Routes>
   );
 }
