@@ -22,6 +22,9 @@ import MapIcon from '@mui/icons-material/Map';
 import DirectionsBusFilledIcon from '@mui/icons-material/DirectionsBusFilled';
 import FeedIcon from '@mui/icons-material/Feed';
 import InfoIcon from '@mui/icons-material/Info';
+import LogoutIcon from '@mui/icons-material/Logout';
+
+import './header.css';
 
 const drawerWidth = 260;
 
@@ -59,7 +62,8 @@ export default function Header() {
         <Toolbar />
         <Divider />
 
-        <List component="div" disablePadding>
+        <a className="Nav-text text-dark" href="/home">
+        <List component="div" disablePadding >
           <ListItemButton>
             <ListItemIcon>
               <HomeIcon />
@@ -67,6 +71,9 @@ export default function Header() {
             <ListItemText primary="Home" />
           </ListItemButton>
         </List>
+        </a>
+
+        <a className="Nav-text text-dark" href="/bus/add/new/route">
         <List component="div" disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -75,6 +82,9 @@ export default function Header() {
             <ListItemText primary="Bus Routes" />
           </ListItemButton>
         </List>
+        </a>
+
+        <a className="Nav-text text-dark" href="/bus/view/info">
         <List component="div" disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -83,6 +93,9 @@ export default function Header() {
             <ListItemText primary="Buses List" />
           </ListItemButton>
         </List>
+        </a>
+
+        <a className="Nav-text text-dark" href="/bus/timetable/new">
         <List component="div" disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -91,7 +104,10 @@ export default function Header() {
             <ListItemText primary="Timetables" />
           </ListItemButton>
         </List>
+        </a>
+
         <Divider />
+
         <List>
         <ListItemButton onClick={handleClick}>
         <ListItemIcon>
@@ -101,6 +117,8 @@ export default function Header() {
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
+
+        <a className="Nav-text text-dark" href="/bus/report/finance-daily">
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
@@ -109,6 +127,9 @@ export default function Header() {
             <ListItemText primary="Daily Financial Report" />
           </ListItemButton>
         </List>
+        </a>
+
+        <a className="Nav-text text-dark" href="/bus/report/finance-monthly">
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
@@ -117,6 +138,9 @@ export default function Header() {
             <ListItemText primary="Monthly Financial Report" />
           </ListItemButton>
         </List>
+        </a>
+
+        <a className="Nav-text text-dark" href="">
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
@@ -125,6 +149,9 @@ export default function Header() {
             <ListItemText primary="Bus Information" />
           </ListItemButton>
         </List>
+        </a>
+
+        <a className="Nav-text text-dark" href="">
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
@@ -133,7 +160,23 @@ export default function Header() {
             <ListItemText primary="Route Information" />
           </ListItemButton>
         </List>
+        </a>
+
       </Collapse>
+
+      <Divider />
+
+      <a className="Nav-text text-dark" href="/user/signin">
+        <List component="div" disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log Out" />
+          </ListItemButton>
+        </List>
+        </a>
+
         </List>
       </Drawer>
     </>
