@@ -41,7 +41,8 @@ export default function Signin() {
   };
 
   return (
-
+    <div>
+    <div className='bg-image'></div>
       <div className="card position-absolute top-50 start-50 translate-middle card-signin">
             <div className="card-body py-5 px-md-5">
               
@@ -93,5 +94,6 @@ export default function Signin() {
               </form>
             </div>
           </div>
+         </div>
   )
 }
