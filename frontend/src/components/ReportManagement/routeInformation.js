@@ -6,9 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Header from '../Header/Header';
-import './viewBuses.css';
 
 function createData(Id, BusNo, Route, NoOfSeats, BusType) {
   return { Id, BusNo, Route, NoOfSeats, BusType };
@@ -22,7 +21,7 @@ const rows = [
   createData( 5, 'ND - 7896', 92, 52, 'Normal'),
 ];
 
-export default function ViewBuses() {
+export default function RouteInformation() {
   return (
 
     <Box sx={{ display: 'flex' }}>
@@ -33,32 +32,57 @@ export default function ViewBuses() {
       >
         {/* <Toolbar /> */}
 
-    <div className='mt-5 pt-3'></div>
+    <h4 className='mt-5 pt-3 fw-bold'>Month end Report</h4>
     <div className='container mt-3'>
     <div className="row">
-      <div className='col-7'>
-                <TextField fullWidth 
-                    id="outlined-textarea"
-                    label="Search"
-                    // size="small"
-                />
+      <div className="col-4">
+        <h5 className='text-end mt-3'>Select Route</h5>
       </div>
-      <div className='col-5 pt-2'>
-        <Button variant="contained" size='large'>Search</Button>
+      <div className='col-4'>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Select Route</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Select Route"
+                    size='medium'
+                    ma
+                  >
+                    <MenuItem value={10}>Normal</MenuItem>
+                    <MenuItem value={20}>A/C</MenuItem>
+                    <MenuItem value={30}>Luxury</MenuItem>
+                  </Select>
+                </FormControl>
+      </div>
+      <div className='col-4 mt-1'>
+        <Button variant="contained" size='large'>Genearte Report</Button>
       </div>
     </div>
-    
-    <div className='d-flex flex-row-reverse'>   
-        <a className='btn-add-new' href='/bus/add/new'><Button style={{
-                                                        backgroundColor: "#009E60",
-                                                          }}
-            variant="contained" size='large'>Add New Bus</Button></a>    
-      </div>
     </div>
 
     <div class="card text-white bg-primary mb-3 mt-5">
       <div class="card-body">
-        <h5 class="card-title"><center>Buses Information</center></h5>
+        <h5 class="card-title"><center>Daily Summery</center></h5>
+      </div>
+    </div>
+
+    <div className='container mt-5'>
+      <div className='d-flex justify-content-center'>
+        <div>
+      <h5 className='text-green'>Total Journey Count : 10</h5>
+      <h5 className='text-green'>Total Passenger Count : 150</h5> 
+
+      <br/>
+
+      <h5>Total Over Crowded Trip Count : </h5>
+      <h5>Total Under Crowded Trip Count : </h5>
+      </div>
+    </div>
+    </div>
+
+    <div class="card text-white bg-primary mb-3 mt-5">
+      <div class="card-body">
+        <h5 class="card-title"><center>Route Information</center></h5>
       </div>
     </div>
 
@@ -97,3 +121,4 @@ export default function ViewBuses() {
     </Box>
   );
 }
+
