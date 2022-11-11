@@ -6,6 +6,8 @@ import FinanceReportDaily from "../components/ReportManagement/financeReportDail
 import FinanceReportMonthly from "../components/ReportManagement/financeReportMonthly";
 import NewTimeTable from "../components/TimeTable/addTimeTable";
 import AddBusroutes from "../components/BusRoute/addBusroutes";
+import BusInformation from "../components/ReportManagement/busInformation";
+import RouteInformation from "../components/ReportManagement/routeInformation";
 
 export default function BusRoutes() {
   return (
@@ -17,6 +19,8 @@ export default function BusRoutes() {
 
       <Route path="/report/finance-daily" element={<FinanceReportDaily/> } />
       <Route path="/report/finance-monthly" element={<FinanceReportMonthly/> } />
+      <Route path="/report/bus/info" element={<BusInformation/>} />
+      <Route path="/report/routes/info" element={<RouteInformation/>} />
     </Routes>
   );
 }

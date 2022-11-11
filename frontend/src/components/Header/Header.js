@@ -6,14 +6,13 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
-import HomeIcon from '@mui/icons-material/Home';
+// import HomeIcon from '@mui/icons-material/Home';
 import AltRouteIcon from '@mui/icons-material/AltRoute';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import TodayIcon from '@mui/icons-material/Today';
@@ -43,7 +42,9 @@ export default function Header() {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-        
+        <Typography variant="h6" noWrap component="div">
+           Bus Ticket Reservation System
+        </Typography>
           
         </Toolbar>
       </AppBar>
@@ -62,7 +63,7 @@ export default function Header() {
         <Toolbar />
         <Divider />
 
-        <a className="Nav-text text-dark" href="/home">
+        {/* <a className="Nav-text text-dark" href="/">
         <List component="div" disablePadding >
           <ListItemButton>
             <ListItemIcon>
@@ -71,7 +72,7 @@ export default function Header() {
             <ListItemText primary="Home" />
           </ListItemButton>
         </List>
-        </a>
+        </a> */}
 
         <a className="Nav-text text-dark" href="/bus/add/new/route">
         <List component="div" disablePadding>
@@ -140,7 +141,7 @@ export default function Header() {
         </List>
         </a>
 
-        <a className="Nav-text text-dark" href="">
+        <a className="Nav-text text-dark" href="/bus/report/bus/info">
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
@@ -150,8 +151,8 @@ export default function Header() {
           </ListItemButton>
         </List>
         </a>
-
-        <a className="Nav-text text-dark" href="">
+        
+        <a className="Nav-text text-dark" href="/bus/report/routes/info">
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
