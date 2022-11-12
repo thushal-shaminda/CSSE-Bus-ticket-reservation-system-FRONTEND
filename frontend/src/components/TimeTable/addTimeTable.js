@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from '../Header/Header';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,11 +9,42 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Box, Button } from '@mui/material';
-
-import './addtimetable.css';
+import swal from "sweetalert";
+import './addtimetable.css'
+import { NewTimeTable } from '../../api/api.bus';
 
 
 export default function AddTimeTable() {
+
+    const [timetableBus, settimetableBus] = useState('');
+    const [timetableRoute, settimetableRoute] = useState('');
+    const [timetableDay, settimetableDay] = useState('');
+    const [timetableTimeH, settimetableTimeH] = useState(new Date());
+    const [timetableTimeM, settimetableTimeM] = useState('');
+    const [timetableUpDown, settimetableUpDown] = useState('');
+
+    const addtimetable = async (e) => {
+        e.preventDefault();
+        const timetable = {
+            timetableBus,
+            timetableRoute, 
+            timetableDay,
+            timetableTimeH,
+            timetableTimeM,
+            timetableUpDown
+        }
+        console.log(timetable);
+        await NewTimeTable(timetable)
+        .then((res) => {
+            swal("Success!", "New Time Table Added!", "success");
+        }
+        ).catch((err) => {
+            swal("Error!", "Something went wrong!", "error");
+        }
+        );
+
+    }
+    
   return (
     <Box sx={{ display: 'flex' }}>
       <Header />
@@ -24,7 +55,7 @@ export default function AddTimeTable() {
         <div className="container mt-5 pt-3">
         <div className="card d-flex justify-content-center card-add-timetable">
           <div className="card-body py-5 px-md-5">
-            <form>
+            <form onSubmit={addtimetable}>
                 <center>
                 <img className='gif-image-timetable' src="https://i.postimg.cc/Qx55TmRZ/lf30-editor-mpcfebd3-150x150.gif" />
                 </center>
@@ -33,7 +64,7 @@ export default function AddTimeTable() {
 
               <div className="row mb-4">
               <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Select Bus</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -48,7 +79,7 @@ export default function AddTimeTable() {
 
               <div className="row mb-4">
               <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Select Route</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -64,7 +95,7 @@ export default function AddTimeTable() {
               <div className="row mb-4">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDatePicker
-                        label="Date desktop"
+                        label="Select Date"
                         inputFormat="MM/DD/YYYY"
                         // value={value}
                         // onChange={handleChange}
@@ -79,31 +110,38 @@ export default function AddTimeTable() {
                 </div>
 
                 <div className='col-5 ps-0'>
-                    <TextField fullWidth id="outlined-basic" label="Hour" variant="outlined" />
+                    <TextField fullWidth 
+                              id="outlined-basic" 
+                              label="Hour" 
+                              variant="outlined" 
+                              />
                 </div>
 
                 <div className='col-5 pe-0'>
-                    <TextField fullWidth id="outlined-basic" label="Minutes" variant="outlined" />
+                    <TextField fullWidth 
+                              id="outlined-basic" 
+                              label="Minutes" 
+                              variant="outlined"
+                              />
                 </div>
               </div>
 
               <div className="row mb-4">
               <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Select Bus Type</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Select Up/Down</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Select Bus Type"
                   >
-                    <MenuItem value={10}>Normal</MenuItem>
-                    <MenuItem value={20}>A/C</MenuItem>
-                    <MenuItem value={30}>Luxury</MenuItem>
+                    <MenuItem value={10}>Up</MenuItem>
+                    <MenuItem value={20}>Down</MenuItem>
                   </Select>
                 </FormControl>
               </div>
 
                 <div className= "d-flex justify-content-center">
-                    <Button variant="contained" size='large'>Add Shedule</Button>
+                    <Button type='submit' variant="contained" size='large'>Add Shedule</Button>
                 </div>
 
             </form>
