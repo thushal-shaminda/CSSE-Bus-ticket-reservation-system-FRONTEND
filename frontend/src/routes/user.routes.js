@@ -6,7 +6,7 @@ export default function UserRoutes() {
     return (
         <Routes>
         <Route path="/signin" element={<Signin />} />
-        <Route path="/user/signup" element={<h1>Sign Up</h1>} />
+        {/* <Route path="/user/signup" element={<h1>Sign Up</h1>} /> */}
         </Routes>
     );
     }

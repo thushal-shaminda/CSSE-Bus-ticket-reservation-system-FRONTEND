@@ -1,10 +1,9 @@
 import './App.css';
+import Signin from './components/User/signin';
 
 function App() {
   return (
-    <div className="App">
-    <h1>hello</h1>
-    </div>
+    <Signin />
   );
 }
 
